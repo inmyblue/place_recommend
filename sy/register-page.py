@@ -4,7 +4,7 @@ app = Flask(__name__)
 from pymongo import MongoClient
 import certifi
 
-client = MongoClient('mongodb+srv://text:sparta@cluster0.qerty.mongodb.net/Cluster0?retryWrites=true&w=majority', tlsCAFile=certifi.where())
+client = MongoClient('mongodb+srv://pre_project:soaktth11@cluster0.qgqev.mongodb.net/Cluster0?retryWrites=true&w=majority', tlsCAFile=certifi.where())
 db = client.dbsparta
 
 doc = {

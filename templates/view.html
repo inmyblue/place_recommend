@@ -11,37 +11,72 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-<!--    load head.html-->
-    <script>
-        $(document).ready(function () {
-            $("#header").load("head.html")
-        });
-    </script>
     <style>
         .myRec{
             width: 80%;
             display: flex;
             margin: auto;
+            margin-top: 30px;
         }
-        .
+
+
+        .card-body {
+            width: 100%;
+            list-style: none;
+            margin: 0 0 0 20px;
+        }
+
+        .card-body li div{
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+        }
+        .tr1{
+            width: 20%;
+            min-width: 70px;
+        }
+        .tr2{
+            width: 70%;
+        }
+
     </style>
     <title>Title</title>
 </head>
 <body>
+{% include('head.html') %}
     <div id="header"></div>
     <wrapper class="myRec">
-        <div class="card mb-3">
+        <div class="card mb-3" style="background-color: transparent; border: none;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
+                    <img style="margin: 10px;" src="https://mp-seoul-image-production-s3.mangoplate.com/620305_1578236075405327.jpg" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
+                    <ul class="card-body">
+                        <li>
+                            <div class="tr1">제목</div>
+                            <div class="tr2">어쩌고</div>
+                        </li>
+                        <li>
+                            <div class="tr1">작성자</div>
+                            <div class="tr2">어쩌고</div>
+                        </li>
+                        <li>
+                            <div class="tr1">상호명</div>
+                            <div class="tr2">어쩌고</div>
+                        </li>
+                        <li>
+                            <div class="tr1">주소</div>
+                            <div class="tr2">어쩌고</div>
+                        </li>
+                        <li>
+                            <div class="tr1">메뉴</div>
+                            <div class="tr2">어쩌고</div>
+                        </li>
+                        <li>
+                            <div class="tr1">코멘트</div>
+                            <div class="tr2">fdjasf;dlasnvdls;ajrkel;qwhtoiehdsabifoulbpqweuthbendjsalchdsaoflbjx</div></li>
+                    </ul>
                 </div>
             </div>
         </div>

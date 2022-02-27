@@ -50,10 +50,12 @@ header .navigation{
     font-size: 40px;
     float : left;
     color : #393E40;
+    text-decoration: none;
+    color : #393E40;
 }
 .navi{
     float : right;
-    font-size : 1.5vh;
+    font-size : 15px;
     box-sizing : border-box;
     margin-top : 15px;
 }

@@ -1,0 +1,36 @@
+{% include('head.html') %}
+<!-- 본인 css 작성-->
+
+<!-- JavaScript 입력 -->
+<script>
+    function list_load() {
+        $.ajax({
+            type: "GET",
+            url: "/lists/load",
+            data: {},
+            success: function (response) {
+                let rows = response['lists']
+                for(let i=0; i < rows.length; i++){
+                    let num = rows[i]['num']
+                    let title = rows[i]['title']
+
+                }
+
+            }
+        })
+    }
+
+    $(document).ready(function(){
+      list_load()
+    })
+</script>
+
+<div class="main_wrap">
+    <div class="main_container">
+
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --green : #005C30;
+    --black : #393E40;
+}
+
+
+*{
+    font-family: "Gmarket Sans Medium";
+    box-sizing: border-box;
+}
+
+body{
+
+}
+
+/* header 부분 CSS */
+header{
+    width : 100%;
+    height : 80px;
+    top:0;
+    left:0;
+}
+header .navigation{
+    margin : auto;
+    border-bottom : 1px solid black;
+    list-style : none;
+    padding: 20px 60px 0px 100px;
+
+    height : 80px;
+    width : 100%;
+    position : fixed;
+
+}
+.logo{
+    font-size: 30px;
+    float : left;
+}
+.navi{
+    float : right;
+    font-size : 20px;
+    box-sizing : border-box;
+}
+.navi_href{
+    text-decoration-line: none;
+    color : black;
+}
+.navi_href:hover{
+    color : black;
+}
+
+.main_wrap{
+    width : 95%;
+    height : 100%;
+}
+
+.main_container{
+  height: 93vh;
+  border: 1px solid #222222;
+  border-top: none;
+  border-bottom: none;
+  width: 100%;
+  display: inline-block;
+}
+.main{
+    display: inline-block;
+    margin-top : 200px;
+    position : relative;
+}

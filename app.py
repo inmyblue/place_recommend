@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from view_test import view_test
 from pymongo import MongoClient
 import certifi
 
@@ -8,6 +9,9 @@ db = client.recommend_place
 
 #Flask App Setup
 app = Flask(__name__)
+
+#view.py
+app.register_blueprint(blueprint=view_test)
 
 @app.route('/')
 def home():

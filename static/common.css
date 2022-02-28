@@ -7,12 +7,12 @@
 @font-face {
     font-family: 'GmarketSansBold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 }
 
 /*
-    Green Color : #005C30;
+    Green Color : #0C3839;
     Black Color : #393E40;
 */
 
@@ -20,17 +20,18 @@
 *{
     font-family: "Gmarket Sans Medium";
     box-sizing: border-box;
-    color : #303E40;
+    color : #393E40;
 }
 
 body{
     background-color: #F2EFE8;
+    height : 98vh;
 }
 
 /* header 부분 CSS */
 header{
     width : 100%;
-    height : 80px;
+    height : 60px;
     top:0;
     left:0;
 }
@@ -38,28 +39,34 @@ header .navigation{
     margin : auto;
     border-bottom : 1px solid black;
     list-style : none;
-    padding: 20px 60px 0px 100px;
-
-    height : 80px;
+    padding: 10px 0px 0px 60px;
+    height : 60px;
     width : 100%;
-    position : fixed;
+    position : sticky;
 
 }
 .logo{
-    font-size: 30px;
+    font-size: 40px;
     float : left;
+    color : #393E40;
+    text-decoration: none;
+    color : #393E40;
+}
+.logo:hover{
+    color : #393E40;
 }
 .navi{
     float : right;
-    font-size : 20px;
+    font-size : 15px;
     box-sizing : border-box;
+    margin-top : 15px;
 }
 .navi_href{
     text-decoration-line: none;
-    color : black;
+    color : #393E40;
 }
 .navi_href:hover{
-    color : black;
+    color : #393E40;
 }
 
 .main_wrap{
@@ -68,41 +75,52 @@ header .navigation{
 }
 
 .main_container{
-  height: 90vh;
-  border: 1px solid #222222;
-  border-top: none;
-  border-bottom: none;
+  height: auto;
+  border-right : 1px solid #393E40;
   width: 100%;
-  display: inline-block;
+  padding : 30px;
 }
-.main{
-    display : flex;
+.main {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height : 100%;
-}
-.left_main{
-    flex : 1;
-    width : 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height : 100%;
-}
-.right_main{
-    flex : 1;
-    width : 100%;
+    height: 99vh;
 }
 .main_img{
-    width : 60vh;
-    height : 60%;
+    width : 40vh;
+    height : 40%;
     border-radius: 70%;
     overflow : hidden;
+    margin-top : -20vh;
+    z-index : 1;
 }
 .img_food{
     width : 100%;
     height : 100%;
     object-fit: cover;
+}
+.sub_img{
+    width: 40vh;
+    height: 40%;
+    background-color: #EBE7DC;
+    border-radius: 50%;
+    z-index: 0;
+    position : relative;
+    margin-top : -25vh;
+    margin-left : -35vh;
+}
+.main_title{
+    z-index : 2;
+    position : absolute;
+    right : 30vw;
+    margin-top : 2vh;
+}
+.main_subtitle{
+    color : #0C3839;
+    font-size : 2vh;
+}
+.main_logo{
+    color : #0C3839;
+    font-size : 7vh;
 }

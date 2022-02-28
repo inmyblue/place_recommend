@@ -1,0 +1,131 @@
+{% include('head.html') %}
+<!-- 본인 css 작성-->
+<link href="../static/login.css" rel="stylesheet">
+
+<!-- JavaScript 입력 -->
+<script>
+    function login(){
+        let id = $('#id').val()
+        let pwd = $('#pwd').val()
+
+        $.ajax({
+            type : "POST",
+            url : "/login/login",
+            data : {
+                'id' : id,
+                'pwd' : pwd
+            },
+            success : function(response){
+
+            }
+        })
+    }
+
+    function register(){
+        let reg_id = $('#reg_id').val()
+        let reg_pwd = $('#reg_pwd').val()
+        let regpwd_chk = $('#regpwd_chk').val()
+        let reg_name = $('#reg_name').val()
+        let pwdchk = false
+
+        if(reg_pwd === regpwd_chk) pwdchk = true
+        if(pwdchk != true) alert("비밀번호를 다시 한번 확인해주세요")
+
+        $.ajax({
+            type : "POST",
+            url : "/login/register",
+            data : {
+                'reg_id' : reg_id,
+                'reg_pwd' : reg_pwd,
+                'reg_name' : reg_name
+            },
+            success : function(response){
+                alert(response['msg'])
+                window.location.reload()
+            }
+        })
+    }
+</script>
+
+<!-- Body 입력 -->
+<div class="main_wrap">
+    <div class="main_container">
+        <div class="login">
+            <div class="login_box">
+                <div class="title">로그인</div>
+                <div class="login_input">
+                    <form name="f_login" method = 'POST' action="javascript:login()">
+                        <input type="text" class="input_text" name="id" id="id" placeholder="ID"></br>
+                        <input type="password" class="input_text" name="pwd" id="pwd" placeholder="PW"></br>
+                        <input type="submit" class="input_btn" value="로그인">
+                    </form>
+                    <button class='modal_btn' id="btn-modal">회원가입</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 회원가입 모달 -->
+<div id="modal" class="modal-overlay">
+    <div class="modal-window">
+        <div class="close-area">X</div>
+        <div class="title">회원가입</div>
+        <div class="content">
+           <form name="f_register" class = "f_register" method = "POST" action = "javascript:register()">
+               <p>아이디(E-mail)</p>
+               <input type="text" class="input_text mgtop0" name="reg_id" id="reg_id" placeholder="Email">
+               <p>비밀번호</p>
+               <input type="password" class="input_text mgtop0" name="reg_pwd" id="reg_pwd">
+               <p>비밀번호확인</p>
+               <input type="password" class="input_text mgtop0" name="regpwd_chk" id="regpwd_chk">
+               <p>닉네임</p>
+               <input type="text" class="input_text mgtop0" name="reg_name" id="reg_name">
+               <input type="submit" class="input_btn" value="등록하기">
+           </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+    const loremIpsum = document.getElementById("lorem-ipsum")
+    fetch("https://baconipsum.com/api/?type=all-meat&paras=200&format=html")
+        .then(response => response.text())
+        .then(result => loremIpsum.innerHTML = result)
+    const modal = document.getElementById("modal")
+
+    function modalOn() {
+        modal.style.display = "flex"
+    }
+
+    function isModalOn() {
+        return modal.style.display === "flex"
+    }
+
+    function modalOff() {
+        modal.style.display = "none"
+    }
+
+    const btnModal = document.getElementById("btn-modal")
+    btnModal.addEventListener("click", e => {
+        modalOn()
+    })
+    const closeBtn = modal.querySelector(".close-area")
+    closeBtn.addEventListener("click", e => {
+        modalOff()
+    })
+    modal.addEventListener("click", e => {
+        const evTarget = e.target
+        if (evTarget.classList.contains("modal-overlay")) {
+            modalOff()
+        }
+    })
+    window.addEventListener("keyup", e => {
+        if (isModalOn() && e.key === "Escape") {
+            modalOff()
+        }
+    })
+</script>

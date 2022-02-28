@@ -75,7 +75,7 @@ header .navigation{
 }
 
 .main_container{
-  height: auto;
+  height: 100%;
   border-right : 1px solid #393E40;
   width: 100%;
   padding : 30px;

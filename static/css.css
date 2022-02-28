@@ -1,0 +1,174 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*
+    Green Color : #0C3839;
+    Black Color : #393E40;
+*/
+
+
+*{
+    font-family: "Gmarket Sans Medium";
+    box-sizing: border-box;
+    color : #393E40;
+}
+
+body{
+    background-color: #F2EFE8;
+    height : 98vh;
+}
+
+header{
+    width : 100%;
+    height : 60px;
+    top:0;
+    left:0;
+}
+header .navigation{
+    margin : auto;
+    border-bottom : 1px solid black;
+    list-style : none;
+    padding: 10px 0px 0px 60px;
+    height : 60px;
+    width : 100%;
+    position : sticky;
+
+}
+.logo{
+    font-size: 40px;
+    float : left;
+    color : #393E40;
+    text-decoration: none;
+    color : #393E40;
+}
+.logo:hover{
+    color : #393E40;
+}
+.navi{
+    float : right;
+    font-size : 15px;
+    box-sizing : border-box;
+    margin-top : 15px;
+}
+.navi_href{
+    text-decoration-line: none;
+    color : #393E40;
+}
+.navi_href:hover{
+    color : #393E40;
+}
+
+.main_wrap{
+    width : 95%;
+    height : 100%;
+}
+
+.main_container{
+  height: auto;
+  border-right : 1px solid #393E40;
+  width: 100%;
+  padding : 30px;
+}
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 99vh;
+}
+.main_img{
+    width : 40vh;
+    height : 40%;
+    border-radius: 70%;
+    overflow : hidden;
+    margin-top : -20vh;
+    z-index : 1;
+}
+.img_food{
+    width : 100%;
+    height : 100%;
+    object-fit: cover;
+}
+.sub_img{
+    width: 40vh;
+    height: 40%;
+    background-color: #EBE7DC;
+    border-radius: 50%;
+    z-index: 0;
+    position : relative;
+    margin-top : -25vh;
+    margin-left : -35vh;
+}
+.main_title{
+    z-index : 2;
+    position : absolute;
+    right : 30vw;
+    margin-top : 2vh;
+}
+.main_subtitle{
+    color : #0C3839;
+    font-size : 2vh;
+}
+.main_logo{
+    color : #0C3839;
+    font-size : 7vh;
+}
+
+.mypost {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+}
+
+.page_title{
+    color: #005C30;
+    font-size:25px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.title_menu{
+    font-weight: bold;
+    width: 900px;
+    height: 400px;
+}
+
+.title_menu_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 30px 10px 30px;
+}
+
+
+.comment {
+    height: 80px;
+}
+
+.save {
+    margin: 20px 0 0 350px;
+    width: 140px;
+    height: 30px;
+    color: #005C30;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: white;
+}

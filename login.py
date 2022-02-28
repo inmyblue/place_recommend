@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 import certifi
 import os
-import hashlib
 import jwt
 import bcrypt
 
@@ -31,7 +30,7 @@ def register():
     reg_pwd = request.form['reg_pwd']
     reg_name = request.form['reg_name']
 
-    sha_pwd = hashlib.sha256(reg_pwd.encode()).hexdigest()
+    sha_pwd = bcrypt.hashpw(reg_pwd.encode('UTF-8'),bcrypt.gensalt())
 
     id_chk = db.member.find_one({'member_id' : reg_id}, {'_id' : False})
     if id_chk :

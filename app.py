@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 
 #view.py
-app.register_blueprint(blueprint=view)
+app.register_blueprint(view, url_prefix='/view')
 app.register_blueprint(lists_bp, url_prefix='/lists')
 app.register_blueprint(login_bp, url_prefix='/login')
 

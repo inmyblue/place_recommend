@@ -7,7 +7,11 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
+<<<<<<< HEAD
+    <orderEntry type="jdk" jdkName="Python 3.9" jdkType="Python SDK" />
+=======
     <orderEntry type="jdk" jdkName="Python 3.8" jdkType="Python SDK" />
+>>>>>>> 2199b2e8d7fd18221d4f297415b2359974d60ac2
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

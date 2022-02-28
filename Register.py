@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 @app.route('/')
 def home():
-   return render_template('index.html')
+   return render_template('Register.html')
 
 @app.route("/food", methods=["POST"])
 def food_post():

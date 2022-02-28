@@ -3,6 +3,8 @@ from view import view
 from pymongo import MongoClient
 import certifi
 
+from list import lists_bp
+
 #DB Configure
 client = MongoClient('mongodb+srv://pre_project:soaktth11@cluster0.qgqev.mongodb.net/Cluster0?retryWrites=true&w=majority', tlsCAFile=certifi.where())
 db = client.recommend_place
@@ -10,8 +12,11 @@ db = client.recommend_place
 #Flask App Setup
 app = Flask(__name__)
 
+
 #view.py
 app.register_blueprint(blueprint=view)
+app.register_blueprint(lists_bp, url_prefix='/lists')
+
 
 @app.route('/')
 def home():

@@ -31,8 +31,7 @@ body{
 /* header 부분 CSS */
 header{
     width : 100%;
-
-    min-height : 5vh;
+    height : 60px;
     top:0;
     left:0;
 }
@@ -41,8 +40,7 @@ header .navigation{
     border-bottom : 1px solid black;
     list-style : none;
     padding: 10px 0px 0px 60px;
-
-    min-height : 5vh;
+    height : 60px;
     width : 100%;
     position : sticky;
 

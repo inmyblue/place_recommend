@@ -41,46 +41,77 @@
 
     </style>
     <title>Title</title>
+    <script>
+        $(document).ready(function () {
+            load_test();
+        });
+
+        function load_test(){
+            $.ajax({
+                type: 'GET',
+                url: '/view/load',
+                data:{},
+                success: function (response){
+                    let place = JSON.parse(response['place'])
+                    place = place[0]
+
+                    let num = place['num']
+                    let title = place['title']
+                    let shop = place['shop']
+                    let menu = place['menu']
+                    let comment = place['comment']
+                    let map = place['map']
+                    let name = place['name']
+                    let image = place['image']
+
+                    let temp_html = `<div class="card mb-3" style="background-color: transparent; border: none; width: 100%">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img style="margin: 10px; max-height: 300px;" src="${image}" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <ul class="card-body">
+                                                    <li>
+                                                        <div class="tr1">제목</div>
+                                                        <div class="tr2">${title}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tr1">작성자</div>
+                                                        <div class="tr2">${name}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tr1">상호명</div>
+                                                        <div class="tr2">${shop}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tr1">주소</div>
+                                                        <div class="tr2">어쩌고</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tr1">메뉴</div>
+                                                        <div class="tr2">${menu}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="tr1">코멘트</div>
+                                                        <div class="tr2">${comment}</div></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>`
+                    $('#detail').append(temp_html)
+                }
+            })
+        }
+    </script>
 </head>
 <body>
 {% include('head.html') %}
     <div id="header"></div>
-    <wrapper class="myRec">
-        <div class="card mb-3" style="background-color: transparent; border: none;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img style="margin: 10px;" src="https://mp-seoul-image-production-s3.mangoplate.com/620305_1578236075405327.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <ul class="card-body">
-                        <li>
-                            <div class="tr1">제목</div>
-                            <div class="tr2">어쩌고</div>
-                        </li>
-                        <li>
-                            <div class="tr1">작성자</div>
-                            <div class="tr2">어쩌고</div>
-                        </li>
-                        <li>
-                            <div class="tr1">상호명</div>
-                            <div class="tr2">어쩌고</div>
-                        </li>
-                        <li>
-                            <div class="tr1">주소</div>
-                            <div class="tr2">어쩌고</div>
-                        </li>
-                        <li>
-                            <div class="tr1">메뉴</div>
-                            <div class="tr2">어쩌고</div>
-                        </li>
-                        <li>
-                            <div class="tr1">코멘트</div>
-                            <div class="tr2">fdjasf;dlasnvdls;ajrkel;qwhtoiehdsabifoulbpqweuthbendjsalchdsaoflbjx</div></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <wrapper class="myRec" id="detail">
+
     </wrapper>
+
+
 
 </body>
 </html>

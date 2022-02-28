@@ -6,6 +6,7 @@
 
 <!-- JavaScript 입력 -->
 <script>
+
     function list_load() {
         $.ajax({
             type: "GET",
@@ -38,7 +39,7 @@
 
                             </div>
                             <div class="card__img" style="background-image: url(${image_path})"></div>
-                            <a href="/view" class="card_link">
+                            <a href="/view" class="card_link" onclick="get_num()">
                                 <div class="card__img--hover" style="background-image: url(${image_path})"></div>
                             </a>
                             <div class="card__info">
@@ -47,7 +48,7 @@
                                 <p class="card__desc">
                                     ${shop}
                                 </p>
-                                <span class="card__by">by <a href="view/load" class="card__author" title="author">${name}</a></span>
+                                <span class="card__by">by <a href="view/load/${num}" class="card__author" title="author">${name}</a></span>
                             </div>
                         </article>
                     `

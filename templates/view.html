@@ -11,49 +11,23 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-    <style>
-        .myRec{
-            width: 80%;
-            display: flex;
-            margin: auto;
-            margin-top: 30px;
-        }
+    <link href="../static/view.css" rel="stylesheet">
 
-
-        .card-body {
-            width: 100%;
-            list-style: none;
-            margin: 0 0 0 20px;
-        }
-
-        .card-body li div{
-            display: inline-block;
-            vertical-align: top;
-            padding: 10px;
-        }
-        .tr1{
-            width: 20%;
-            min-width: 70px;
-        }
-        .tr2{
-            width: 70%;
-        }
-
-    </style>
     <title>Title</title>
     <script>
         $(document).ready(function () {
-            load_test();
+            view_load();
         });
 
-        function load_test(){
+        function view_load(){
             $.ajax({
                 type: 'GET',
-                url: '/view/load',
+                url: '/view/load/{{ num }}',
                 data:{},
                 success: function (response){
                     let place = JSON.parse(response['place'])
                     place = place[0]
+                    console.log(place)
 
                     let num = place['num']
                     let title = place['title']

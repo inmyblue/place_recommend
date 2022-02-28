@@ -16,16 +16,18 @@ db = client.recommend_place
 view = Blueprint("view", __name__)
 app = Flask(__name__)
 
+num = 1
+
 
 @view.route('/')
 def views():
     return render_template('view.html')
-    # return "view test"
 
 
-@view.route('/load', methods=["GET"])
+@view.route('/load/', methods=["GET"])
 def view_load():
-    place = list(db.place.find({'num': 1}))
+    print(num)
+    place = list(db.place.find({'num': num}))
     place = json.dumps(place, default=json_util.default)
     return jsonify({'place': place})
-
+    # return render_template('view.html', place = place)

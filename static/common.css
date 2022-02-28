@@ -12,7 +12,7 @@
 }
 
 /*
-    Green Color : #005C30;
+    Green Color : #0C3839;
     Black Color : #393E40;
 */
 
@@ -25,32 +25,36 @@
 
 body{
     background-color: #F2EFE8;
-    padding-top : 80px;
+    height : 98vh;
 }
 
 /* header 부분 CSS */
 header{
     width : 100%;
-    min-height : 5%;
+
+    min-height : 5vh;
     top:0;
     left:0;
-    position : fixed;
 }
 header .navigation{
     margin : auto;
     border-bottom : 1px solid black;
     list-style : none;
-    padding: 0px 60px 0px 100px;
+    padding: 10px 0px 0px 60px;
 
-    min-height : 5%;
+    min-height : 5vh;
     width : 100%;
-    position : fixed;
+    position : sticky;
+
 }
 .logo{
     font-size: 40px;
     float : left;
     color : #393E40;
     text-decoration: none;
+    color : #393E40;
+}
+.logo:hover{
     color : #393E40;
 }
 .navi{
@@ -64,7 +68,7 @@ header .navigation{
     color : #393E40;
 }
 .navi_href:hover{
-    color : black;
+    color : #393E40;
 }
 
 .main_wrap{
@@ -73,41 +77,52 @@ header .navigation{
 }
 
 .main_container{
-  height: 88vh;
-  border: 1px solid #222222;
-  border-top: none;
-  border-bottom: none;
+  height: auto;
+  border-right : 1px solid #393E40;
   width: 100%;
-  display: inline-block;
+  padding : 30px;
 }
-.main{
-    display : flex;
+.main {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height : 100%;
-}
-.left_main{
-    flex : 1;
-    width : 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height : 100%;
-}
-.right_main{
-    flex : 1;
-    width : 100%;
+    height: 99vh;
 }
 .main_img{
-    width : 60vh;
-    height : 60%;
+    width : 40vh;
+    height : 40%;
     border-radius: 70%;
     overflow : hidden;
+    margin-top : -20vh;
+    z-index : 1;
 }
 .img_food{
     width : 100%;
     height : 100%;
     object-fit: cover;
+}
+.sub_img{
+    width: 40vh;
+    height: 40%;
+    background-color: #EBE7DC;
+    border-radius: 50%;
+    z-index: 0;
+    position : relative;
+    margin-top : -25vh;
+    margin-left : -35vh;
+}
+.main_title{
+    z-index : 2;
+    position : absolute;
+    right : 30vw;
+    margin-top : 2vh;
+}
+.main_subtitle{
+    color : #0C3839;
+    font-size : 2vh;
+}
+.main_logo{
+    color : #0C3839;
+    font-size : 7vh;
 }

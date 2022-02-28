@@ -16,5 +16,4 @@ def lists():
 @lists_bp.route('/load', methods=['GET'])
 def list_load():
     db_list = list(db.place.find({}, {'_id' : False}))
-    print(db_list)
     return jsonify({'lists' : db_list})

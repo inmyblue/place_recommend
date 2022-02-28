@@ -1,9 +1,16 @@
 from flask import Flask, Blueprint, render_template, jsonify
 from pymongo import MongoClient
+from dotenv import load_dotenv
+
 import certifi
+import os
+
+#환경변수 값 불러오기
+load_dotenv()
 
 #DB Configure
-client = MongoClient('mongodb+srv://pre_project:soaktth11@cluster0.qgqev.mongodb.net/Cluster0?retryWrites=true&w=majority', tlsCAFile=certifi.where())
+mongo_host = os.getenv('MONGODB_HOST')
+client = MongoClient(mongo_host, tlsCAFile=certifi.where())
 db = client.recommend_place
 
 lists_bp = Blueprint('lists', __name__)

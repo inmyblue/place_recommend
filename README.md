@@ -13,3 +13,6 @@
  [Library]
   * dnspython
   * certifi
+  * python-dotenv
+  * bcrypt
+  * PyJWT

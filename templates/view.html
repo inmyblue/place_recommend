@@ -12,6 +12,8 @@
             crossorigin="anonymous"></script>
 
     <link href="../static/view.css" rel="stylesheet">
+    <link href="../static/list.css" rel="stylesheet">
+
 
     <title>Title</title>
     <script>
@@ -39,7 +41,7 @@
                     let shop = place['shop']
                     let menu = place['menu']
                     let comment = place['comment']
-                    let map = place['map']
+                    let address = place['address']
                     let name = place['name']
                     let image = place['image']
 
@@ -64,7 +66,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="tr1">주소</div>
-                                                        <div class="tr2">어쩌고</div>
+                                                        <div class="tr2">${address}</div>
                                                     </li>
                                                     <li>
                                                         <div class="tr1">메뉴</div>
@@ -86,9 +88,13 @@
 <body>
 {% include('head.html') %}
     <div id="header"></div>
-    <wrapper class="myRec" id="detail">
-
-    </wrapper>
+    <div class="main_wrap" style="width: 80%; margin: auto">
+        <div class="main_container" id="detail">
+            <div class="list_title">
+                #내맛소 상세보기
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

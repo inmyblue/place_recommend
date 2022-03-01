@@ -1,0 +1,26 @@
+.myRec{
+            width: 80%;
+            display: flex;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+
+        .card-body {
+            width: 100%;
+            list-style: none;
+            margin: 0 0 0 20px;
+        }
+
+        .card-body li div{
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+        }
+        .tr1{
+            width: 20%;
+            min-width: 70px;
+        }
+        .tr2{
+            width: 70%;
+        }

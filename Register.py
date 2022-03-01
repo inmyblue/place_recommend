@@ -5,6 +5,7 @@ from pymongo import MongoClient
 import certifi
 
 import requests
+import os
 from bs4 import BeautifulSoup
 
 

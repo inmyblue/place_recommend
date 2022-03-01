@@ -63,7 +63,7 @@ def register():
 def login_chk():
     id = request.form['id']
     pwd = request.form['pwd']
-    sha_pwd = hashlib.sha256(pwd.encode()).hexdigest()
+    sha_pwd = hashlib.sha256(pwd.encode()).hexdigest() #비밀번호 암호화
     status = "SUCCESS"
 
     db_user = db.member.find_one({'member_id': id}, {'_id': False})

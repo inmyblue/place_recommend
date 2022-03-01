@@ -10,6 +10,7 @@ import jwt
 from list import lists_bp
 from login import login_bp
 from view import view
+from Register import register_bp
 
 # 환경변수 값 불러오기
 load_dotenv()
@@ -29,6 +30,7 @@ secret_key = os.getenv('SECRETKEY')
 app.register_blueprint(view, url_prefix='/view')
 app.register_blueprint(lists_bp, url_prefix='/lists')
 app.register_blueprint(login_bp, url_prefix='/login')
+app.register_blueprint(register_bp, url_prefix='/register')
 
 
 @app.route('/')

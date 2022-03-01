@@ -7,6 +7,7 @@
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
     <!-- bootstrap -->
 {#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"#}
@@ -17,7 +18,12 @@
 
     <!-- Style Sheet-->
     <link href="../static/common.css" rel="stylesheet">
-
+    <script>
+        function logout(){
+            $.removeCookie('mytoken', {path:'/'})
+            window.location.replace('/')
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -27,7 +33,13 @@
                  <a class="navi_href" href="/lists">맛집구경</a></li>
             <li class="navi" style="margin-right : 20px;">
                 <a class="navi_href" href="/register">맛집등록</a></li>
+            {% if logged == 'False' %}
             <li class="navi" style="margin-right : 20px;">
                 <a class="navi_href" href="/login">로그인</a></li>
+            {% elif logged == 'True' %}
+            <li class="navi" style="margin-right : 20px;">
+                <a class="navi_href" href="javascript:logout()">로그아웃</a></li>
+            <li class="navi" style="margin-right : 20px;">{{ user_name }}님 환영합니다</li>
+            {% endif %}
         </ul>
     </header>

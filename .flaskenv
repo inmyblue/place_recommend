@@ -1,1 +1,0 @@
-MONGODB_HOST = 'mongodb+srv://pre_project:soaktth11@cluster0.qgqev.mongodb.net/Cluster0?retryWrites=true&w=majority'

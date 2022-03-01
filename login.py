@@ -2,12 +2,10 @@ from flask import Flask, Blueprint, render_template, jsonify, request
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
-
 import certifi
 import os
-import hashlib
 import jwt
-import bcrypt
+import hashlib
 
 
 #환경변수 값 불러오기
@@ -32,7 +30,6 @@ def register():
     reg_name = request.form['reg_name']
 
     sha_pwd = hashlib.sha256(reg_pwd.encode()).hexdigest()
-
     id_chk = db.member.find_one({'member_id' : reg_id}, {'_id' : False})
     if id_chk :
         return jsonify({"msg" : "이미 가입된 ID입니다"})

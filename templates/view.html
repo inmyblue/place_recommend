@@ -15,20 +15,23 @@
 
     <title>Title</title>
     <script>
+        function getParameter(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        const num = getParameter("num");
         $(document).ready(function () {
             view_load();
         });
-
         function view_load(){
             $.ajax({
                 type: 'GET',
-                url: '/view/load/{{ num }}',
+                url: '/view/load/?num='+num,
                 data:{},
                 success: function (response){
-                    let place = JSON.parse(response['place'])
-                    place = place[0]
-                    console.log(place)
-
+                    let place = response['place']
                     let num = place['num']
                     let title = place['title']
                     let shop = place['shop']
@@ -84,8 +87,6 @@
     <wrapper class="myRec" id="detail">
 
     </wrapper>
-
-
 
 </body>
 </html>

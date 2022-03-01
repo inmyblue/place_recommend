@@ -22,9 +22,10 @@ def views():
     return render_template('view.html')
 
 
-@view.route('/load', methods=["GET"])
+@view.route('/view/load', methods=['GET'])
 def view_load():
     num = request.args.get('num')
     place = db.place.find_one({'num': int(num)}, {'_id': False})
 
     return jsonify({'place': place})
+    # return render_template('view.html', place = place)

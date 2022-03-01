@@ -2,7 +2,6 @@ from flask import Flask, Blueprint, render_template, jsonify, request
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
-
 import certifi
 import os
 import jwt
@@ -14,7 +13,7 @@ load_dotenv()
 
 #DB Configure
 mongo_host = os.getenv('MONGODB_HOST')
-client = MongoClient(mongo_host, tls=True, tlsAllowInvalidCertificates=True, tlsCAFile=certifi.where())
+client = MongoClient(mongo_host, tlsCAFile=certifi.where())
 db = client.recommend_place
 
 login_bp = Blueprint('login', __name__)
@@ -31,7 +30,6 @@ def register():
     reg_name = request.form['reg_name']
 
     sha_pwd = hashlib.sha256(reg_pwd.encode()).hexdigest()
-    print(sha_pwd)
     id_chk = db.member.find_one({'member_id' : reg_id}, {'_id' : False})
     if id_chk :
         return jsonify({"msg" : "이미 가입된 ID입니다"})

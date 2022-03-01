@@ -1,16 +1,17 @@
 from flask import Flask, render_template
-from view import view
 from pymongo import MongoClient
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
 import certifi
 import os
 
+# Blueprint Load
 from list import lists_bp
 from login import login_bp
+from view import view
 
 #환경변수 값 불러오기
-load_dotenv()
+load_dotenv(find_dotenv())
 
 #DB Configure
 mongo_host = os.getenv('MONGODB_HOST')

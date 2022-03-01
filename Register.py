@@ -6,6 +6,7 @@ import certifi
 
 import requests
 from bs4 import BeautifulSoup
+import  os
 
 
 register_bp = Blueprint('register', __name__)

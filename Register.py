@@ -43,7 +43,11 @@ def food_post():
         image = soup.select_one('meta[property="og:image"]')['content']
         menu = soup.select_one('main > article > div.column-wrapper > div.column-contents > div > section.restaurant-detail > table > tbody > tr:nth-child(3)').text
 
+    place_list = list(db.place.find({}, {'_id': False}))
+    count =len(place_list) + 1
+
     doc = {
+        'num': count,
         'name': name_receive,
         'title': title_receive,
         'shop': shop,
@@ -55,5 +59,5 @@ def food_post():
 
     }
 
-    db.foods.insert_one(doc)
+    db.place.insert_one(doc)
     return jsonify({'msg':'맛집 등록 완료!'})

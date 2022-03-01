@@ -1,7 +1,6 @@
 {% include('head.html') %}
 <!-- 본인 css 작성-->
 <link href="../static/login.css" rel="stylesheet">
-
 <!-- JavaScript 입력 -->
 <script>
     function login(){
@@ -10,13 +9,17 @@
 
         $.ajax({
             type : "POST",
-            url : "/login/login",
+            url : "/login/login_chk",
             data : {
                 'id' : id,
                 'pwd' : pwd
             },
             success : function(response){
-
+                let access_token = response['access_token']
+                if(response['status'] == 'SUCCESS'){
+                    $.cookie('mytoken', access_token, {path:'/'})
+                    window.location.replace('/')
+                }
             }
         })
     }

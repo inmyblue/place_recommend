@@ -7,6 +7,11 @@ import certifi
 import requests
 from bs4 import BeautifulSoup
 
+mongo_host = os.getenv('MONGODB_HOST')
+client = MongoClient(mongo_host, tlsCAFile=certifi.where())
+db = client.recommend_place
+
+
 
 @app.route('/')
 def home():
@@ -25,9 +30,8 @@ def food_post():
     data = requests.get(url, headers=headers)
 
     soup = BeautifulSoup(data.text, 'html.parser')
-    #db 주소를 넣어주세요!
-    client = MongoClient('여기에~',tlsCAFile=certifi.where())
-    db = client.dbsparta
+
+
 
     foods = soup.select('body')
 

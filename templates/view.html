@@ -22,13 +22,15 @@
             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
         }
         const num = getParameter("num");
+
         $(document).ready(function () {
             view_load();
         });
         function view_load(){
+
             $.ajax({
                 type: 'GET',
-                url: '/view/load/?num='+num,
+                url: '/view/load?num=' + num,
                 data:{},
                 success: function (response){
                     let place = response['place']

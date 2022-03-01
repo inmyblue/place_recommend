@@ -1,27 +1,42 @@
-from flask import Flask, Blueprint, render_template, jsonify, request
+from flask import Flask, Blueprint, render_template, jsonify, request, redirect, url_for
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
+import jwt
 import certifi
 import os
-import jwt
 import hashlib
+import datetime
 
 
 #환경변수 값 불러오기
 load_dotenv()
+
+app = Flask(__name__)
 
 #DB Configure
 mongo_host = os.getenv('MONGODB_HOST')
 client = MongoClient(mongo_host, tlsCAFile=certifi.where())
 db = client.recommend_place
 
+#SECRET KEY
+secret_key = os.getenv('SECRETKEY')
+
 login_bp = Blueprint('login', __name__)
-app = Flask(__name__)
 
 @login_bp.route('/')
 def login():
-    return render_template('login.html')
+    token_receive = request.cookies.get('mytoken')
+    logged = "False"
+    try:
+        payload = jwt.decode(token_receive, secret_key, algorithms=['HS256'])
+        user_name = db.member.find_one({'member_id': payload['id']}, {'_id': False})['member_name']
+        logged = "True"
+        return render_template('login.html', logged=logged, user_name = user_name)
+    except jwt.ExpiredSignatureError:
+        return render_template('login.html', logged=logged)
+    except jwt.exceptions.DecodeError:
+        return render_template('login.html', logged=logged)
 
 @login_bp.route('/register', methods=['POST'])
 def register():
@@ -43,3 +58,27 @@ def register():
     db.member.insert_one(doc)
 
     return jsonify({"msg" : "회원가입이 완료되었습니다"})
+
+@login_bp.route('/login_chk', methods=['POST'])
+def login_chk():
+    id = request.form['id']
+    pwd = request.form['pwd']
+    sha_pwd = hashlib.sha256(pwd.encode()).hexdigest()
+    status = "SUCCESS"
+
+    db_user = db.member.find_one({'member_id': id}, {'_id': False})
+
+    if not db_user:
+        return jsonify({"msg" : "가입된 ID가 없습니다", "status" : status})
+
+    db_member = db.member.find_one({'member_id' : id, 'member_pw' : sha_pwd}, {'_id' : False})
+    if db_member:
+        payload = {
+            'id' : id,
+            'exp' : datetime.datetime.utcnow()+datetime.timedelta(seconds=60)
+        }
+        access_token = jwt.encode(payload, secret_key, algorithm='HS256')
+
+        return jsonify({"msg" : "로그인 성공", "status" : status, 'access_token' : access_token})
+    else :
+        return jsonify({"msg" : "비밀번호를 다시 확인해주세요", "status" : status})

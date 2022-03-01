@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Blueprint
 app = Flask(__name__)
 
 from pymongo import MongoClient
@@ -7,17 +7,18 @@ import certifi
 import requests
 from bs4 import BeautifulSoup
 
+
+register_bp = Blueprint('register', __name__)
+
 mongo_host = os.getenv('MONGODB_HOST')
 client = MongoClient(mongo_host, tlsCAFile=certifi.where())
 db = client.recommend_place
 
-
-
-@app.route('/')
+@register_bp.route('/')
 def home():
    return render_template('Register.html')
 
-@app.route("/food", methods=["POST"])
+@register_bp.route("/food", methods=["POST"])
 def food_post():
     name_receive = request.form["name_give"]
     title_receive = request.form["title_give"]
@@ -55,6 +56,3 @@ def food_post():
 
     db.foods.insert_one(doc)
     return jsonify({'msg':'맛집 등록 완료!'})
-
-if __name__ == '__main__':
-   app.run('0.0.0.0', port=5000, debug=True)
